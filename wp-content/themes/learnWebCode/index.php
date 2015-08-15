@@ -10,7 +10,12 @@
 
 
 
-	<article class="post">
+	<article class="post <?php if (has_post_thumbnail()) { ?>has-thumbnail<?php } ?>">
+
+		<!-- featured image -->
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small-thumbnail'); ?></a>
+		</div>
 		
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	

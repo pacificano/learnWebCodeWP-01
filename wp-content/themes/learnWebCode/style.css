@@ -239,5 +239,45 @@ p.post-info a:visited {
 	color: #999;
 }
 
+/* Image styles */
+
+img {
+	max-width: 100%;
+}
+
+.has-thumbnail {
+	position: relative;
+	padding-left: 200px;
+}
+
+.post-thumbnail {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* Search */
+div.hd-search {
+	float: right;
+}
+
+div.hd-search label {
+	position: absolute;
+	left: -9999px;
+}
+
+div.hd-search #searchsubmit {
+	background-color: #006ec3;
+	color: #FFF;
+	padding: 5px 14px;
+	border: none;
+	vertical-align: top;
+}
+
+div.hd-search #s {
+	vertical-align: top;
+	padding: 3px 0;
+}
+
 
 

@@ -3,14 +3,23 @@
 	get_header();
 
 	if (have_posts()) :
-		
+
+?>
+
+	<h2>Search results for: <?php the_search_query(); ?></h2>
+
+<?php  
+
 	while (have_posts()) : the_post(); 
 
 ?>
 
+	<article class="post <?php if (has_post_thumbnail()) { ?>has-thumbnail<?php } ?>">
 
-
-	<article class="post">
+		<!-- featured image -->
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small-thumbnail'); ?></a>
+		</div>
 		
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	
@@ -41,11 +50,9 @@
 
 		</p>
 
-		<!-- featured image -->
-		<!-- if doesnt work, reload image through dashboard -->
-		<?php the_post_thumbnail('banner-image'); ?> 
+		<?php the_excerpt(); ?>
 
-		<?php the_content(); ?>
+		
 
 	</article>
 		
