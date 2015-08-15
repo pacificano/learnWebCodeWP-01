@@ -83,7 +83,7 @@
 
 		</p>
 
-		<?php the_excerpt()(); ?>
+		<?php the_excerpt(); ?>
 		<!-- changed the_content to the_excerpt. just shows a preview of the post, rather than the whole thing. -->
 
 	</article>
