@@ -101,5 +101,54 @@ function learningWordPress_setup() {
 
 	add_action('widgets_init', 'ourWidgetsInit');
 
+// Customize Appearance Options
+	function learningWordPress_customize_register($wp_customize) {
 
+		$wp_customize->add_setting('lwp_link_color', array(
+			'default' => '#006ec3',
+			'transport' => 'refresh', // not sure what this does but its important
+			));
+
+		$wp_customize->add_setting('lwp_btn_color', array(
+			'default' => '#006ec3',
+			'transport' => 'refresh', // not sure what this does but its important
+			));
+
+		$wp_customize->add_section('lwp_standard_colors', array(
+			'title' => __('Standard Colors', 'learnWebCode'),
+			'priority' => 30, // where it sits
+			));
+
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'lwp_link_color_control', array(
+			'label' => __('Link Color', 'learnWebCode'),
+			'section' => 'lwp_standard_colors',
+			'settings' => 'lwp_link_color',
+			)));
+
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'lwp_btn_color_control', array(
+			'label' => __('Button Color', 'learnWebCode'),
+			'section' => 'lwp_standard_colors',
+			'settings' => 'lwp_btn_color',
+			)));
+	}
+
+	add_action('customize_register', 'learningWordPress_customize_register');
+
+// Output Customize CSS
+	function learningWordPress_customize_css() { ?>
+
+			<style type="text/css">
+				a:link,
+				a:visited {
+					color: <?php echo get_theme_mod('lwp_link_color'); ?>
+				}
+
+				.one-half {
+					background-color: <?php echo get_theme_mod('lwp_btn_color'); ?>
+				}
+			</style>
+
+	<?php }
+
+	add_action('wp_head', 'learningWordPress_customize_css');
 

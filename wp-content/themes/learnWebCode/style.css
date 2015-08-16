@@ -163,6 +163,21 @@ article.post-gallery h2 {
 	color: #FFF;
 }
 
+/* Post Columns */
+.home-columns {
+	padding-top: 30px;
+}
+
+.one-half {
+	width: 45%;
+	float: left;
+	margin-right: 10%;
+}
+
+.last {
+	margin-right: 0;
+}
+
 /* Main Column */
 .main-column {
 	width: 66%;
